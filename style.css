@@ -32,11 +32,7 @@ a {
 	font-size: 12px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
 	box-sizing: border-box;
 }
-#jewSwitch:before {
-	content: "OY VEY";
-	padding-left: 2px;
-	font-size: 7pt;
-}
+
 .onoffswitch-inner:before {
 	content: "ON";
 	padding-left: 11px;
@@ -59,8 +55,8 @@ a {
 	margin-left: 0;
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
-	right: 0px; 
-	background-color: #00FF22; 
+	right: 0px;
+	background-color: #00FF22;
 }
 
 #footer {
