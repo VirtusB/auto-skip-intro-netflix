@@ -1,0 +1,23 @@
+{
+   "browser_action": {
+      "default_popup": "popup.html"
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "js": [ "util.js", "main.js" ],
+      "matches": [ "https://*.netflix.com/watch/*"],
+      "run_at": "document_idle"
+   } ],
+   "description": "Automatically skips the intros on Netflix",
+   "icons": {
+      "128": "icon128.png",
+      "16": "icon16.png",
+      "48": "icon48.png"
+   },
+//   "key": "",
+   "manifest_version": 2,
+   "name": "Auto Skip Netflix Intros",
+   "permissions": [ "storage" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.0"
+}

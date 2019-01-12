@@ -1,0 +1,97 @@
+body {
+	width: 345px;
+	height: 160px;
+	background-color:#ffffff;
+	font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+table {
+	width: 345px;
+}
+
+a {
+	color: black;
+}
+
+.onoffswitch {
+	position: relative; width: 59px;
+	-webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+	display: none;
+}
+.onoffswitch-label {
+	display: block; overflow: hidden; cursor: pointer;
+	border: 2px solid #A1A1A1; border-radius: 0px;
+}
+.onoffswitch-inner {
+	display: block; width: 200%; margin-left: -100%;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+	display: block; float: left; width: 50%; height: 18px; padding: 0; line-height: 18px;
+	font-size: 12px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+	box-sizing: border-box;
+}
+#jewSwitch:before {
+	content: "OY VEY";
+	padding-left: 2px;
+	font-size: 7pt;
+}
+.onoffswitch-inner:before {
+	content: "ON";
+	padding-left: 11px;
+	background-color: #EEEEEE; color: #000000;
+}
+.onoffswitch-inner:after {
+	content: "OFF";
+	padding-right: 11px;
+	background-color: #EEEEEE; color: #000000;
+	text-align: right;
+}
+.onoffswitch-switch {
+	display: block; width: 11px; margin: 3.5px;
+	background: #A1A1A1;
+	position: absolute; top: 0; bottom: 0;
+	right: 37px;
+	border: 2px solid #A1A1A1; border-radius: 0px;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+	margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+	right: 0px; 
+	background-color: #00FF22; 
+}
+
+#footer {
+	width:345px;
+	bottom:0px;
+}
+
+#footer div:hover {
+	opacity: 0.7;
+}
+
+#footer div {
+	float: left;
+	padding: 0px 2px 0px 2px;
+	font-size: 15px;
+	height: 25px;
+	display: table;
+	cursor: pointer;
+}
+
+#footer span {
+	font-size:10pt;
+	font-weight: bold;
+	vertical-align: middle;
+}
+
+#site {
+	float: right !important;
+}
+
+#site span {
+	display: table-cell;
+	padding-left: 5px;
+}
