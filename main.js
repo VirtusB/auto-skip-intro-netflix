@@ -9,7 +9,7 @@ const callback = function(mutationsList) {
             		return;
 				}
                 mutation.removedNodes.forEach(function(node) {
-                	if (node.childNodes[0].className === 'player-loading') {
+                	if (node.childNodes[0] !== undefined && node.childNodes[0] !== null && node.childNodes[0].className === 'player-loading') {
                         autoSkipObserver();
 					}
                 });
@@ -33,7 +33,7 @@ function autoSkipObserver() {
                     if (mutation.target.nodeName === 'DIV') {
                         mutation.addedNodes.forEach(function(node) {
                             if (node.className === 'skip-credits') {
-                            	autSkip();
+                            	autoSkip();
 							}
                         });
                     }
@@ -46,17 +46,29 @@ function autoSkipObserver() {
 
 }
 
-
-function autSkip() {
+let lastCalled = new Date() + 365 * 86400000;
+function autoSkip() {
     const getAutoSkip = getSetting("auto-skip");
 
     Promise.resolve(getAutoSkip).then(autoSkip => {
         if(!autoSkip)
             return;
 
+        if (new Date() - lastCalled < 1000) {
+        	return;
+		}
+
         const skipCreditsSpan = document.getElementsByClassName('skip-credits')[0];
         const skipCreditsAnchor = skipCreditsSpan.getElementsByTagName('a')[0];
+        fireUIEvent();
         skipCreditsAnchor.click();
+        lastCalled = new Date();
     });
 }
 
+function fireUIEvent() {
+    let event = document.createEvent("HTMLEvents");
+    event.initEvent('mousemove', true, true);
+    let el = document.getElementsByClassName('VideoContainer')[0];
+    el.dispatchEvent(event);
+}
