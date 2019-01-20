@@ -1,6 +1,3 @@
-const targetNode = document.getElementsByClassName("nf-kb-nav-wrapper")[0];
-const config = { attributes: true, childList: true, subtree: true };
-
 const callback = function(mutationsList) {
     for (const mutation of mutationsList) {
         if (mutation.type === 'childList') {
@@ -18,9 +15,14 @@ const callback = function(mutationsList) {
     }
 };
 
-const observer = new MutationObserver(callback);
-observer.observe(targetNode, config);
 
+window.addEventListener('load', function () {
+    const targetNode = document.getElementsByClassName("nf-kb-nav-wrapper")[0];
+    const config = { attributes: true, childList: true, subtree: true };
+
+    const observer = new MutationObserver(callback);
+    observer.observe(targetNode, config);
+});
 
 
 function autoSkipObserver() {
